@@ -6,7 +6,7 @@
 - CSS (Flex layout)
 
 ## Features
-- Game cards (4x2 layout)
+- Game cards
 - Play button
 - Founders section with photos
 - REST API for games
