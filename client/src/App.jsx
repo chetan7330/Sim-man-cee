@@ -22,7 +22,7 @@ function App() {
       id: 1,
       name: "Raviteja",
       role: "Founder",
-      image: "/founders/raviteja.jpg", // put in public/founders/
+      image: import.meta.env.BASE_URL + "founders/raviteja.jpg", // put in public/founders/
       details: [
         "NALSAR University",
         "PhD — IIM Raipur / IIM Bangalore",
@@ -33,7 +33,7 @@ function App() {
       id: 2,
       name: "Jose Manu",
       role: "Co-Founder",
-      image: "/founders/jose.jpg", // put in public/founders/
+      image: import.meta.env.BASE_URL + "founders/jose.jpg", // put in public/founders/
       details: [
         "Mahindra University",
         "PhD — IIM Bangalore",
