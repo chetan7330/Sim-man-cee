@@ -51,12 +51,25 @@ function App() {
       <div className="grid">
         {games.map((game) => (
           <div className="card" key={game.id}>
-            <img src={game.image} alt={game.name} />
-            <h3>{game.name}</h3>
-            <button onClick={() => handlePlay(game.name)}>
-              Play
-            </button>
-          </div>
+  <div className="category-tag">
+    {game.category}
+  </div>
+
+  <img
+  src={`${import.meta.env.BASE_URL}${game.image}`}
+  alt={game.name}
+/>
+
+  <h3>{game.name}</h3>
+
+  <p className="game-desc">
+    {game.description}
+  </p>
+
+  <button onClick={() => handlePlay(game.name)}>
+    Play
+  </button>
+</div>
         ))}
       </div>
 

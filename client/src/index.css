@@ -123,3 +123,22 @@ body {
 .team-details li {
   margin-bottom: 6px;
 }
+
+/* Category tag like your design */
+.category-tag {
+  background: #ff8c00;
+  color: white;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* Description styling */
+.game-desc {
+  font-size: 14px;
+  color: #ccc;
+  margin: 6px 0 12px;
+  min-height: 48px;
+}

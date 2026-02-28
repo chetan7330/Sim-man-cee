@@ -7,39 +7,61 @@ app.use(express.json());
 
 // Sample game data (can move to Mongo later)
 const games = [
-  { id: 1, name: "Game-1", image: "https://via.placeholder.com/300x160?text=Game-1" },
-  { id: 2, name: "Game-2", image: "https://via.placeholder.com/300x160?text=Game-2" },
-  { id: 3, name: "Game-3", image: "https://via.placeholder.com/300x160?text=Game-3" },
-  { id: 4, name: "Game-4", image: "https://via.placeholder.com/300x160?text=Game-4" },
-  { id: 5, name: "Game-5", image: "https://via.placeholder.com/300x160?text=Game-5" },
-  { id: 6, name: "Game-6", image: "https://via.placeholder.com/300x160?text=Game-6" },
-  { id: 7, name: "Game-7", image: "https://via.placeholder.com/300x160?text=Game-7" },
-  { id: 8, name: "Game-8", image: "https://via.placeholder.com/300x160?text=Game-8" }
-];
-// Founders data
-const founders = [
   {
     id: 1,
-    name: "Raviteja",
-    role: "Founder",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    details: [
-      "NALSAR University",
-      "PhD — IIM Raipur / IIM Bangalore",
-      "Simulation design & pedagogy"
-    ]
+    category: "Strategy",
+    name: "Clash of Taxis",
+    image: "games/clash-of-taxis.jpg",
+    description: "Indian online taxi market — price wars & demand-supply mismatch"
   },
   {
     id: 2,
-    name: "Jose Manu",
-    role: "Co-Founder",
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
-    details: [
-      "Mahindra University",
-      "PhD — IIM Bangalore",
-      "M.Tech — BITS Pilani",
-      "Technology & quantitative modelling"
-    ]
+    category: "Public Policy",
+    name: "Network Policy Lab",
+    image: "games/network-policy.jpg",
+    description: "Structural social networks to implement public policies"
+  },
+  {
+    id: 3,
+    category: "OB/HR",
+    name: "Influence & Welfare",
+    image: "games/influence-welfare.jpg",
+    description: "Influential tactics for welfare of low-income employees"
+  },
+  {
+    id: 4,
+    category: "Economics",
+    name: "Bargaining Arena",
+    image: "games/bargaining-arena.jpg",
+    description: "Economic theories of bargaining in competitive rivalry"
+  },
+  {
+    id: 5,
+    category: "Operations",
+    name: "Service Optimizer",
+    image: "games/service-optimizer.jpg",
+    description: "Balancing service quality and operational optimisation"
+  },
+  {
+    id: 6,
+    category: "Finance",
+    name: "Financial Literacy",
+    image: "games/financial-literacy.jpg",
+    description: "Financial literacy training for geriatric citizens"
+  },
+  {
+    id: 7,
+    category: "Operations",
+    name: "Baker’s Corner",
+    image: "games/bakers-corner.jpg",
+    description: "Inventory optimization"
+  },
+  {
+    id: 8,
+    category: "Finance",
+    name: "Fake vs Fact: Buybacks",
+    image: "games/buybacks.jpg",
+    description: "Reality of buybacks — separating myth from mechanism"
   }
 ];
 // GET all games
