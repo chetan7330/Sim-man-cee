@@ -1,6 +1,4 @@
-# MERN Game Hub
-
-A simple MERN stack application that displays games as cards and includes a founding team section.
+# Simancee Game Hub
 
 ## Tech Stack
 - React (Frontend)
