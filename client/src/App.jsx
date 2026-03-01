@@ -4,11 +4,15 @@ import "./index.css";
 function App() {
   const [games, setGames] = useState([]);
 
+  const API_URL =
+    import.meta.env.VITE_API_URL ||
+    "http://api.sim-man-cee.com:5500/api/games";
+
   useEffect(() => {
-    fetch("http://localhost:5500/api/games")
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => setGames(data))
-      .catch(() => console.log("Backend not connected"));
+      .catch(err => console.log("Backend not connected:", err));
   }, []);
 
   const founders = [
@@ -60,7 +64,7 @@ function App() {
       {/* HERO */}
       <section className="hero">
         <h1>Business Simulation Platform</h1>
-        <h2 className="tagline">PLAY MONKEY BUSINESS</h2>
+        <h2 className="tagline">PLACE TO PLAY MONKEY BUSINESS</h2>
         <p>
           Interactive simulations designed for experiential learning in strategy,
           finance, operations, and public policy.
@@ -127,10 +131,10 @@ function App() {
       <section className="section" id="about">
         <h2 className="section-title">About Us</h2>
         <p className="about-text">
-          SimManCee develops interactive business simulations that help
-          institutions and organizations build decision-making capabilities.
-          Our platform enables experiential learning across strategy, finance,
-          operations, economics, and public policy.
+          SimManCee develops interactive business simulations 
+          that help institutions recruit Agile cheetahs during 
+          placement drives. Games that bring competitive spirit, 
+          killer instinct and we activate  your beta mind.
         </p>
       </section>
 
