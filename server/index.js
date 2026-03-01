@@ -3,9 +3,9 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors());
-app.use(express.json());
 
-// Sample game data (can move to Mongo later)
+const PORT = process.env.PORT || 5500;
+
 const games = [
   {
     id: 1,
@@ -64,22 +64,11 @@ const games = [
     description: "Reality of buybacks — separating myth from mechanism"
   }
 ];
-// GET all games
+
 app.get("/api/games", (req, res) => {
   res.json(games);
 });
 
-// Add new game (future use)
-app.post("/api/games", (req, res) => {
-  const newGame = {
-    id: games.length + 1,
-    ...req.body
-  };
-  games.push(newGame);
-  res.json(newGame);
-});
-
-const PORT = 5500;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

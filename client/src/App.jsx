@@ -4,25 +4,19 @@ import "./index.css";
 function App() {
   const [games, setGames] = useState([]);
 
-  // Fetch games from backend
   useEffect(() => {
-    fetch("http://127.0.0.1:5500/api/games")
-      .then((res) => res.json())
-      .then((data) => setGames(data))
-      .catch((err) => console.log(err));
+    fetch("http://localhost:5500/api/games")
+      .then(res => res.json())
+      .then(data => setGames(data))
+      .catch(() => console.log("Backend not connected"));
   }, []);
 
-  const handlePlay = (name) => {
-    alert("Starting " + name);
-  };
-
-  // Founder data (replace images with your own later)
   const founders = [
     {
       id: 1,
       name: "Raviteja",
       role: "Founder",
-      image: import.meta.env.BASE_URL + "founders/raviteja.jpg", // put in public/founders/
+      image: "founders/raviteja.jpg",
       details: [
         "NALSAR University",
         "PhD — IIM Raipur / IIM Bangalore",
@@ -33,7 +27,7 @@ function App() {
       id: 2,
       name: "Jose Manu",
       role: "Co-Founder",
-      image: import.meta.env.BASE_URL + "founders/jose.jpg", // put in public/founders/
+      image: "founders/jose.jpg",
       details: [
         "Mahindra University",
         "PhD — IIM Bangalore",
@@ -44,56 +38,106 @@ function App() {
   ];
 
   return (
-    <div className="container">
-      <h1 className="title">MERN Game Hub</h1>
+    <div>
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <div className="nav-left">
+          <img
+            src={import.meta.env.BASE_URL + "logo.png"}
+            alt="logo"
+            className="logo"
+          />
+          <span className="brand">SimManCee</span>
+        </div>
 
-      {/* Games Section */}
-      <div className="grid">
-        {games.map((game) => (
-          <div className="card" key={game.id}>
-  <div className="category-tag">
-    {game.category}
+        <div className="nav-links">
+          <a href="#games">Simulations</a>
+          <a href="#team">Team</a>
+          <a href="#about">About</a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section className="hero">
+        <h1>Business Simulation Platform</h1>
+        <h2 className="tagline">PLAY MONKEY BUSINESS</h2>
+        <p>
+          Interactive simulations designed for experiential learning in strategy,
+          finance, operations, and public policy.
+        </p>
+      </section>
+
+      {/* GAMES */}
+      {/* GAMES */}
+<section className="section" id="games">
+  <h2 className="section-title">Simulations</h2>
+
+  <div className="grid">
+    {games.map(game => (
+      <div className="card" key={game.id}>
+        <div className="category-tag">{game.category}</div>
+
+        <img
+          src={import.meta.env.BASE_URL + game.image}
+          alt={game.name}
+        />
+
+        <h3>{game.name}</h3>
+        <p className="desc">{game.description}</p>
+
+        <button
+          className="play-btn"
+          onClick={() => alert(`Launching ${game.name}`)}
+        >
+          Play
+        </button>
+      </div>
+    ))}
   </div>
+</section>
 
-  <img
-  src={`${import.meta.env.BASE_URL}${game.image}`}
-  alt={game.name}
-/>
+      {/* FOUNDERS */}
+      <section className="section" id="team">
+        <h2 className="section-title">Founding Team</h2>
 
-  <h3>{game.name}</h3>
+        <div className="grid founders-grid">
+          {founders.map(f => (
+            <div className="card founder-card" key={f.id}>
+              <div className="founder-img">
+                <img
+                  src={import.meta.env.BASE_URL + f.image}
+                  alt={f.name}
+                />
+              </div>
 
-  <p className="game-desc">
-    {game.description}
-  </p>
+              <h3>{f.name}</h3>
+              <p className="founder-role">{f.role}</p>
 
-  <button onClick={() => handlePlay(game.name)}>
-    Play
-  </button>
-</div>
-        ))}
-      </div>
-
-      {/* Founding Team Section */}
-      <h2 className="team-title">Founding Team</h2>
-
-      <div className="team-container">
-        {founders.map((founder) => (
-          <div className="team-card" key={founder.id}>
-            <div className="team-photo">
-              <img src={founder.image} alt={founder.name} />
+              <ul className="founder-details">
+                {f.details.map((d, i) => (
+                  <li key={i}>{d}</li>
+                ))}
+              </ul>
             </div>
+          ))}
+        </div>
+      </section>
 
-            <h3 className="team-name">{founder.name}</h3>
-            <p className="team-role">{founder.role}</p>
+      {/* ABOUT */}
+      <section className="section" id="about">
+        <h2 className="section-title">About Us</h2>
+        <p className="about-text">
+          SimManCee develops interactive business simulations that help
+          institutions and organizations build decision-making capabilities.
+          Our platform enables experiential learning across strategy, finance,
+          operations, economics, and public policy.
+        </p>
+      </section>
 
-            <ul className="team-details">
-              {founder.details.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      {/* FOOTER */}
+      <footer className="footer">
+        © {new Date().getFullYear()} SimManCee
+      </footer>
     </div>
   );
 }

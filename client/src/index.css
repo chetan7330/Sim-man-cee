@@ -1,144 +1,200 @@
 body {
   margin: 0;
   background: #1e1e1e;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
 }
 
-/* Page container */
-.container {
-  width: 1200px;
-  margin: auto;
-  padding-top: 40px;
-}
-
-.title {
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* FLEX layout */
-.grid {
+/* NAVBAR */
+.navbar {
+  background: #111;
   display: flex;
-  flex-wrap: wrap;      /* allows multiple rows */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;   /* reduced vertical padding */
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;     /* increase size */
+  width: auto;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 40px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(#111, #1e1e1e);
+}
+
+.tagline {
+  color: #ff8c00;
+  letter-spacing: 3px;
+}
+
+/* SECTIONS */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-/* 4 cards per row */
+/* CARD STYLE (USED FOR BOTH GAMES & FOUNDERS) */
 .card {
   background: #2c2c2c;
-  width: calc(25% - 15px);   /* 4 per row */
-  padding: 15px;
   border-radius: 8px;
+  padding: 15px;
   text-align: center;
-  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
   width: 100%;
-  height: 140px;
+  height: 150px;
   object-fit: cover;
-  background: #444;
   border-radius: 6px;
 }
 
-.card h3 {
-  margin: 10px 0;
-}
-
-.card button {
-  padding: 6px 16px;
-  background: #007bff;
-  border: none;
+/* CATEGORY */
+.category-tag {
+  background: #ff8c00;
+  padding: 4px 8px;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
   border-radius: 4px;
-  color: white;
-  cursor: pointer;
 }
 
-.card button:hover {
-  background: #0056b3;
+.desc {
+  color: #ccc;
+  font-size: 14px;
 }
 
-/* Founding Team Section */
-
-.team-title {
-  margin-top: 60px;
-  margin-bottom: 20px;
-  font-size: 28px;
-  text-align: center;
+/* FOUNDERS */
+.founders-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
-/* Center the cards */
-.team-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+.founder-card {
+  padding-top: 25px;
 }
 
-/* Same style as game cards */
-.team-card {
-  background: #2c2c2c;   /* same as .card */
-  color: white;
-  width: 320px;
-  padding: 25px 20px;
-  border-radius: 8px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-/* Circular photo (NO absolute positioning) */
-.team-photo {
+.founder-img {
   width: 120px;
   height: 120px;
-  margin: 0 auto 15px auto;
+  margin: auto;
   border-radius: 50%;
   overflow: hidden;
-  /* border: 3px solid #007bff; */
+  border: 3px solid #ff8c00;
+  margin-bottom: 10px;
 }
 
-.team-photo img {
+.founder-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Text */
-.team-name {
-  margin: 10px 0 5px 0;
-  font-size: 20px;
+.founder-role {
+  color: #ff8c00;
+  font-weight: bold;
 }
 
-.team-role {
-  color: #007bff;
-  margin-bottom: 10px;
-}
-
-/* Details */
-.team-details {
+.founder-details {
   text-align: left;
   padding-left: 20px;
-}
-
-.team-details li {
-  margin-bottom: 6px;
-}
-
-/* Category tag like your design */
-.category-tag {
-  background: #ff8c00;
-  color: white;
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-/* Description styling */
-.game-desc {
-  font-size: 14px;
   color: #ccc;
-  margin: 6px 0 12px;
-  min-height: 48px;
+}
+
+/* ABOUT */
+.about-text {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+.footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* PLAY BUTTON */
+.play-btn {
+  margin-top: 10px;
+  padding: 8px 18px;
+  background:blue;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.play-btn:hover {
+  background: #e67e00;
+  transform: translateY(-1px);
+}
+
+.play-btn:active {
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+  }
 }
